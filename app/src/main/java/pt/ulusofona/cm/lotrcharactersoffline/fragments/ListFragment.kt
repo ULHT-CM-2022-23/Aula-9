@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import pt.ulusofona.cm.lotrcharactersoffline.CharacterListAdapter
+import pt.ulusofona.cm.lotrcharactersoffline.SimpleListAdapter
 import pt.ulusofona.cm.lotrcharactersoffline.R
 import pt.ulusofona.cm.lotrcharactersoffline.databinding.FragmentCharactersListBinding
 import pt.ulusofona.cm.lotrcharactersoffline.model.LOTRCharacter
 
-class CharactersListFragment : Fragment() {
+class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentCharactersListBinding
-    private lateinit var characters: List<LOTRCharacter>
+    private lateinit var items: List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.getSerializable("characters")?.let {
-            characters = (it as Array<LOTRCharacter>).asList()
+        arguments?.getStringArrayList("items")?.let {
+            items = it
         }
     }
 
@@ -33,16 +33,16 @@ class CharactersListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.charactersListRv.layoutManager = LinearLayoutManager(requireContext())
-        binding.charactersListRv.adapter = CharacterListAdapter(characters)
+        binding.charactersListRv.adapter = SimpleListAdapter(items)
         binding.charactersListRv.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
     }
 
     companion object {
 
-        fun newInstance(characters: List<LOTRCharacter>): CharactersListFragment {
-            return CharactersListFragment().apply {
+        fun newInstance(items: List<String>): ListFragment {
+            return ListFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable("characters", characters.toTypedArray())
+                    putStringArrayList("items", ArrayList(items))
                 }
             }
         }

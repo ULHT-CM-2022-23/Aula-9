@@ -2,7 +2,7 @@ package pt.ulusofona.cm.lotrcharactersoffline
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import pt.ulusofona.cm.lotrcharactersoffline.fragments.CharactersListFragment
+import pt.ulusofona.cm.lotrcharactersoffline.fragments.ListFragment
 import pt.ulusofona.cm.lotrcharactersoffline.fragments.HomeFragment
 import pt.ulusofona.cm.lotrcharactersoffline.model.LOTRCharacter
 
@@ -19,8 +19,8 @@ object NavigationManager {
     placeFragment(fm, HomeFragment())
   }
 
-  fun goToCharactersListFragment(fm: FragmentManager, characters: List<LOTRCharacter>) {
-    placeFragment(fm, CharactersListFragment.newInstance(characters))
+  fun goToListFragment(fm: FragmentManager, items: List<String>) {
+    placeFragment(fm, ListFragment.newInstance(items))
   }
 
 }
