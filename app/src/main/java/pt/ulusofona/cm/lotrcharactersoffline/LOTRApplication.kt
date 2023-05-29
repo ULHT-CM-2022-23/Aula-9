@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import okhttp3.OkHttpClient
 import pt.ulusofona.cm.lotrcharactersoffline.data.local.LOTRDatabase
-import pt.ulusofona.cm.lotrcharactersoffline.data.LOTROkHttp
+import pt.ulusofona.cm.lotrcharactersoffline.data.remote.LOTROkHttp
 import pt.ulusofona.cm.lotrcharactersoffline.data.LOTRRepository
 import pt.ulusofona.cm.lotrcharactersoffline.data.local.LOTRRoom
 
@@ -28,7 +28,7 @@ class LOTRApplication : Application() {
   private fun initLOTRRoom(): LOTRRoom {
     return LOTRRoom(
       LOTRDatabase.getInstance(applicationContext).charactersDao(),
-      LOTRDatabase.getInstance(applicationContext).moviesDao()
+      LOTRDatabase.getInstance(applicationContext).gendersDao()
     )
   }
 

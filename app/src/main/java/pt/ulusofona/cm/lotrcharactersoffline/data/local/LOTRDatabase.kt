@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [LOTRCharacterDB::class, LOTRMovieDB::class, LOTRMovieCharacterDB::class], version = 1)
+@Database(entities = [LOTRCharacterDB::class, LOTRGenderDB::class], version = 1)
 abstract class LOTRDatabase: RoomDatabase() {
 
   abstract fun charactersDao(): LOTRCharacterDao
-  abstract fun moviesDao(): LOTRMovieDao
+  abstract fun gendersDao(): LOTRGenderDao
 
   companion object {
     private var instance: LOTRDatabase? = null

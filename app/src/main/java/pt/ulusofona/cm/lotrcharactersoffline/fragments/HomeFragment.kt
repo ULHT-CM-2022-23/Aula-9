@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
         }
       }
     }
+    /*
     binding.getMoviesBtn.setOnClickListener {
       LOTRRepository.getInstance().getMovies { result ->
         if(result.isSuccess) {
@@ -72,6 +73,7 @@ class HomeFragment : Fragment() {
         Log.i("APP", "$character is now registered on $movie")
       }
     }
+     */
   }
 
   override fun onResume() {
@@ -87,6 +89,7 @@ class HomeFragment : Fragment() {
         }
       }
     }
+    /*
     LOTRRepository.getInstance().getMovies { result ->
       if(result.isSuccess) {
         CoroutineScope(Dispatchers.Main).launch {
@@ -98,6 +101,7 @@ class HomeFragment : Fragment() {
         }
       }
     }
+     */
   }
 
 }

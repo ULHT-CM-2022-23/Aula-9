@@ -6,10 +6,10 @@ import androidx.room.*
 interface LOTRCharacterDao {
 
   @Insert
-  suspend fun insert(character: LOTRCharacterDB)
+  fun insert(character: LOTRCharacterDB)
 
   @Query("SELECT * FROM characters")
-  suspend fun getAll(): List<LOTRCharacterDB>
+  fun getAll(): List<LOTRCharacterDB>
 
   @Query("SELECT * FROM characters WHERE characterId = :id")
   suspend fun getById(id: String): LOTRCharacterDB

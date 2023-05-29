@@ -9,6 +9,11 @@ data class LOTRCharacter (
     val id: String,
     val birth: String,
     val death: String,
-    val gender: String?,  // gender is optional
+    val gender: Gender,  // gender is optional
     val name: String
-) : Serializable
+) : Serializable {
+    enum class Gender {
+        MALE, FEMALE, UNKNOWN,
+    }
+
+}

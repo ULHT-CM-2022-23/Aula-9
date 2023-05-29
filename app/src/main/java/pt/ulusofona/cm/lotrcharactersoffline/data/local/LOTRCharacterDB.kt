@@ -8,6 +8,6 @@ data class LOTRCharacterDB(
   @PrimaryKey val characterId: String,
   val birth: String,
   val death: String,
-  val gender: String?,  // gender is optional
-  val name: String
+  val name: String,
+  val gender: String  // gender is optional
 )
